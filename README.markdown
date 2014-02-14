@@ -2,9 +2,8 @@
 
 This repository includes a couple of simple Rx sample applications developed
 at Edument AB and used in various seminars. If you're interested to learn more
-on these topics, check out our Parallel and Asynchronous Programming course:
-
-http://www.edument.se/en/training/dotnet/parallel-and-asynchronous-programming-in-csharp-5
+on these topics, check out our [Parallel and Asynchronous Programming
+course](http://www.edument.se/en/training/dotnet/parallel-and-asynchronous-programming-in-csharp-5).
 
 ## Airport Announcements
 
