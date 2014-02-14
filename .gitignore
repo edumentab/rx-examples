@@ -1,0 +1,8 @@
+*.suo
+*.cache
+*.exe
+*.dll
+*.pdb
+*.exe.config
+*.exe.manifest
+TemporaryGeneratedFile_*

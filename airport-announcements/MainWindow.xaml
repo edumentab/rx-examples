@@ -1,0 +1,50 @@
+﻿<Window x:Class="Announcements.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Airport Announcement Simulator" Height="395" Width="525">
+    <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+        <ComboBox Name="Flight" ItemsSource="{Binding Flights}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{2}:{3} {0} {1}">
+                                <Binding Path="FlightCode" />
+                                <Binding Path="Destination" />
+                                <Binding Path="Hour" />
+                                <Binding Path="Minute" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <GroupBox Header="Delay/Cancel">
+            <StackPanel HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>New Time</TextBlock>
+                    <TextBox Name="NewHour" Width="40" Text="{Binding ElementName=Flight, Path=SelectedItem.Hour, Mode=OneWay}" />
+                    <TextBlock>:</TextBlock>
+                    <TextBox Name="NewMinute" Width="40" Text="{Binding ElementName=Flight, Path=SelectedItem.Minute, Mode=OneWay}" />
+                    <Button Click="ChangeDepartureTime">Change Departure Time</Button>
+                </StackPanel>
+                <Button Click="CancelDeparture">Cancel Departure</Button>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Gate">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="AssignedGate" Width="100"></TextBox>
+                    <Button Width="150" Click="AssignGate">Assign gate</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="NewGate" Width="100"></TextBox>
+                    <Button Width="150" Click="ChangeGate">Change gate</Button>
+                </StackPanel>
+                <Button Click="OpenGate">Open gate</Button>
+            </StackPanel>
+        </GroupBox>
+        <ListBox ItemsSource="{Binding Announcements}" Height="188">
+        </ListBox>
+    </StackPanel>
+</Window>
